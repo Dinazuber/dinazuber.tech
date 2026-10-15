@@ -2,7 +2,7 @@
 
 Site portfolio / CV personnel de **Dina Zuber**, informaticienne CFC (développement web) basée en Valais, Suisse.
 
-🌐 **En ligne :** [dinazuber.tech](https://dinazuber.tech)
+🌐 **En ligne :** [https://dinazuber.github.io/dinazuber.tech/](https://dinazuber.github.io/dinazuber.tech/)
 
 Site statique en HTML, CSS et JavaScript pur, sans framework ni étape de build.
 
