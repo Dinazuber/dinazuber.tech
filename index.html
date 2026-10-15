@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dina Zuber – Informaticienne</title>
+<meta name="description" content="Dina Zuber, informaticienne CFC (développement web) en Valais. Sites web, applications C#, gestion de projet.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="star" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12C7 11 11 7 12 0z"/></symbol></svg>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="pill" aria-label="Navigation principale">
+  <a href="#projets" class="active">Projets <kbd>/</kbd></a>
+  <a href="#parcours">Parcours</a>
+  <a href="#competences">Compétences</a>
+  <a href="#contact">Contact</a>
+  <button id="theme" aria-label="Changer de thème">◐</button>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="star s1" data-speed="-.25"><use href="#star"/></svg>
+  <svg class="star s2" data-speed=".2"><use href="#star"/></svg>
+  <div class="hero-in" data-speed="-.12">
+    <h1><span class="line">Salut. Moi c'est Dina.</span><span class="line">J'écris du code <span class="typed-wrap"><span id="typed"></span><i class="caret"></i></span></span></h1>
+    <p class="lead">Informaticienne CFC, diplômée en 2024 avec une maturité professionnelle technique. Déterminée, autonome et passionnée : je veux apprendre sur le terrain et être utile à votre équipe.</p>
+    <div class="actions"><a class="btn primary" href="#contact">Me contacter</a><a class="btn" href="#projets">Voir mes projets</a><a class="btn" href="assets/Dina_Zuber_CV.pdf" download="Dina_Zuber_CV.pdf">Mon CV en PDF</a></div>
+  </div>
+  <a class="scroll-hint" href="#projets" aria-label="Défiler vers les projets"><span></span></a>
+</header>
+
+<main>
+  <section class="stats" aria-label="Chiffres clés">
+    <div data-reveal><b data-count="4" data-prefix="~">~6</b><span>ans d'expérience</span></div>
+    <div data-reveal style="--d:.1s"><b data-count="10" data-suffix="+">10+</b><span>projets réalisés</span></div>
+    <div data-reveal style="--d:.2s"><b data-count="3">3</b><span>stages en entreprise</span></div>
+    <div data-reveal style="--d:.3s"><b>1 an et demi</b><span>d'expérience en entreprise</span></div>
+  </section>
+
+  <section id="projets" class="work" aria-label="Projets">
+    <article class="card c-peri span5" data-reveal>
+      <header><small>Projet personnel</small><h2>Melody Mystery</h2></header>
+      <p>Un blindtest musical pour deviner des morceaux entre amis.</p>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>Melody Mystery</span></div><div class="shot"><img src="assets/melodymystery.png" alt="" onerror="this.remove()"><b></b><b></b><b></b></div></div>
+    </article>
+    <article class="card c-sky span7" data-reveal style="--d:.12s">
+      <svg class="doodle" data-speed=".15" viewBox="0 0 120 110" aria-hidden="true"><path d="M10 80c20-10 8-60 30-65 18 5-14 60 12 62 20 2 20-30 52-25" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <header><small>JM Contactless</small><h2>Commune de Liddes</h2></header>
+      <p>Refonte complète du site et création d'un CMS pour gérer les événements.</p>
+      <a class="visit" href="https://www.liddes.ch" target="_blank" rel="noopener">Visiter le site ↗</a>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>liddes.ch</span></div><div class="shot"><img src="assets/liddes.png" alt="" onerror="this.remove()"><b></b><b></b><b></b></div></div>
+    </article>
+    <article class="card c-lilac span12" data-reveal>
+      <header><small>Association</small><h2>Capoeira Dos Alpes</h2></header>
+      <p>Maintenance depuis 2024 : nouvelles fonctionnalités et mise à jour des activités.</p>
+      <a class="visit" href="https://capoeiradosalpes.ch/fr" target="_blank" rel="noopener">Visiter le site ↗</a>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>capoeiradosalpes.ch</span></div><div class="shot"><img src="assets/capoeira.png" alt="" onerror="this.remove()"><b></b><b></b><b></b></div></div>
+    </article>
+  </section>
+
+  <section id="parcours" class="block">
+    <h2 class="big" data-reveal>Parcours.</h2>
+    <div class="about" data-reveal>
+      <figure class="avatar"><img src="assets/profile.png" alt="Portrait de Dina Zuber" onerror="this.remove()"><span>DZ</span></figure>
+      <p>Mon objectif : financer mes études à la HES-SO de Sion tout en gagnant de l'expérience. Passionnée d'informatique depuis toute petite, toujours prête à apprendre.</p>
+    </div>
+    <ol class="timeline">
+      <li data-reveal><time>Septembre 2025 – Maintenant</time><div><h3>Étudiante</h3><p class="org">HES-SO, Sion</p><p>Études pour obtenir le Bachelor en Informatique et Système de communication</p></div></li>
+      <li data-reveal><time>Août 2024 – Juillet 2025</time><div><h3>Stage d'un an en développement</h3><p class="org">JM Contactless, Martigny</p><p>Site de la commune de Liddes, TPI, petits projets internes, gestion du matériel pour des manifestations.</p></div></li>
+      <li data-reveal><time>Novembre 2022</time><div><h3>Stage de 3 mois en développement</h3><p class="org">DayOneFactory, Sion</p><p>Maintenance de sites en production (Infomaniak), projets web, contact avec les clients.</p></div></li>
+      <li data-reveal><time>Août 2022</time><div><h3>Stage de 3 mois en développement</h3><p class="org">Proactive Solutions, Sion</p><p>Projet interne de gestion des tâches, gestion de projet, travail d'équipe.</p></div></li>
+      <li data-reveal class="edu"><time>2020 – 2024</time><div><h3>CFC Informaticienne + maturité professionnelle technique</h3><p class="org">EPTM, Sion</p></div></li>
+      <li data-reveal class="edu"><time>2020</time><div><h3>Fin de scolarité obligatoire</h3><p class="org">CO de Goubing, Sierre</p></div></li>
+    </ol>
+  </section>
+
+  <section id="competences" class="block">
+    <h2 class="big" data-reveal>Compétences.</h2>
+  </section>
+  <div class="marquee" aria-hidden="true"><div class="track"><span>HTML / CSS</span><span>JavaScript</span><span>PHP</span><span>C#</span><span>Python</span><span>SQL</span><span>No-code</span><span>Gestion de projet</span><span>HTML / CSS</span><span>JavaScript</span><span>PHP</span><span>C#</span><span>Bases de données</span><span>No-code</span><span>Gestion de projet</span></div></div>
+  <section class="skills">
+    <div class="panel" data-reveal><h3>Techniques</h3><p class="chips"><span>HTML / CSS</span><span>JavaScript</span><span>PHP</span><span>C#</span><span>Python</span><span>SQL</span><span>No-code</span><span>Scala</span><span>Java</span></p></div>
+    <div class="panel" data-reveal style="--d:.1s"><h3>Transversales</h3><p class="chips soft"><span>Autonomie</span><span>Respect des délais</span><span>Gestion de projet</span><span>Gestion d'équipe</span><span>Création de contenu</span><span>Réseaux sociaux</span></p></div>
+    <div class="panel" data-reveal><h3>Ce que je fais</h3><ul><li><b>Design web</b> : CSS et plusieurs frameworks</li><li><b>Applications</b> : C# et outils no-code</li><li><b>Données</b> : bases de données complexes</li><li><b>Projets</b> : documentation et planification</li></ul></div>
+    <div class="panel" data-reveal style="--d:.1s"><h3>Langues</h3><ul><li><b>Français</b> : langue maternelle</li><li><b>Anglais</b> : niveau professionnel</li><li><b>Allemand</b> : niveau scolaire</li></ul></div>
+  </section>
+
+  <section id="contact" class="block contact">
+    <svg class="star s3" data-speed=".08"><use href="#star"/></svg>
+    <h2 class="big" data-reveal>Parlons-en.</h2>
+    <a class="mail" data-reveal href="mailto:dinazuber05@gmail.com">dinazuber05@gmail.com</a>
+    <p class="meta"><a href="tel:+41799028304">079 902 83 04</a> · 3968 Veyras · <a href="assets/Dina_Zuber_CV.pdf" download="Dina_Zuber_CV.pdf">Télécharger mon CV (PDF)</a></p>
+  </section>
+</main>
+<footer>© <span id="year">2025</span> Dina Zuber</footer>
+<script src="script.js"></script>
+</body>
+</html>
