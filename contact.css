@@ -23,6 +23,6 @@
 .form .thanks[hidden]{display:none}
 .form .thanks h3{font-size:2rem}
 .form .thanks p{color:var(--muted);max-width:32ch}
-.form .again{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.form .again{justify-self:center;margin-top:.4rem;background:transparent;color:var(--text);border:1.5px solid var(--line)}
 @keyframes thanksIn{from{opacity:0;transform:translateY(16px) scale(.96)}}
 @media (prefers-reduced-motion:reduce){.form .thanks{animation:none}}

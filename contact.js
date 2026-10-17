@@ -1,6 +1,6 @@
 (() => {
   // Colle ici ta clé gratuite Web3Forms (https://web3forms.com : elle t'est envoyée par e-mail).
-  const ACCESS_KEY = 'VOTRE_CLE_WEB3FORMS';
+  const ACCESS_KEY = '1e5b1eba-09e0-4401-a9da-c0bb4331460e';
   const TO_EMAIL = 'dinazuber05@gmail.com';
 
   const form = document.getElementById('contact-form');
@@ -48,12 +48,14 @@
           from_name: 'Site CV', name: d.name, email: d.email, message: d.message, botcheck: ''
         })
       });
-      const json = await res.json();
-      if (!res.ok || !json.success) throw new Error(json.message || 'Erreur');
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.success) throw new Error(json.message || ('code ' + res.status));
       form.reset();
       form.classList.add('sent'); thanks.hidden = false; again.focus();
     } catch (err) {
-      say('L\u2019envoi a échoué. Réessaie, ou écris-moi à ' + TO_EMAIL + '.', 'err');
+      console.error('Web3Forms :', err);
+      const detail = err instanceof TypeError ? 'connexion bloquée ou hors ligne' : err.message;
+      say('L\u2019envoi a échoué (' + detail + '). Réessaie, ou écris-moi à ' + TO_EMAIL + '.', 'err');
     } finally { btn.disabled = false; btn.textContent = 'Envoyer le message'; }
   });
 })();
