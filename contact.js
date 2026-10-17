@@ -1,31 +1,44 @@
 (() => {
-  // 1) Crée ta clé gratuite sur https://web3forms.com (elle t'est envoyée par e-mail) et colle-la ici.
-  //    Tant que la clé n'est pas remplacée, le formulaire ouvre simplement ton application e-mail.
+  // Colle ici ta clé gratuite Web3Forms (https://web3forms.com : elle t'est envoyée par e-mail).
   const ACCESS_KEY = 'VOTRE_CLE_WEB3FORMS';
   const TO_EMAIL = 'dinazuber05@gmail.com';
 
   const form = document.getElementById('contact-form');
   if (!form) return;
   const status = form.querySelector('.status');
-  const btn = form.querySelector('button');
+  const btn = form.querySelector('button[type="submit"]');
   const say = (msg, cls = '') => { status.textContent = msg; status.className = 'status ' + cls; };
+
+  // Écran de remerciement (créé ici, aucun changement de HTML nécessaire)
+  const thanks = document.createElement('div');
+  thanks.className = 'thanks';
+  thanks.setAttribute('role', 'status');
+  thanks.hidden = true;
+  thanks.innerHTML = '<h3>Merci !</h3><p>Ton message a bien été envoyé. Je te réponds dès que possible.</p>';
+  const again = document.createElement('button');
+  again.type = 'button';
+  again.className = 'again';
+  again.textContent = 'Envoyer un autre message';
+  thanks.appendChild(again);
+  form.appendChild(thanks);
+  again.addEventListener('click', () => {
+    form.classList.remove('sent'); thanks.hidden = true; say('');
+    form.name.focus();
+  });
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (form.botcheck.checked) return;               // anti-spam : champ piège
     if (!form.reportValidity()) return;
-    const d = { name: form.name.value.trim(), email: form.email.value.trim(), message: form.message.value.trim() };
 
-    // Mode de secours : pas de clé configurée → ouverture de l'application e-mail
     if (ACCESS_KEY.startsWith('VOTRE')) {
-      const subject = encodeURIComponent('Message depuis ton site – ' + d.name);
-      const body = encodeURIComponent(d.message + '\n\n' + d.name + ' (' + d.email + ')');
-      location.href = `mailto:${TO_EMAIL}?subject=${subject}&body=${body}`;
-      say('Ton application e-mail va s\u2019ouvrir pour envoyer le message.', 'ok');
+      console.warn('contact.js : la clé Web3Forms est manquante (ACCESS_KEY).');
+      say('Le formulaire n\u2019est pas encore activé. Écris-moi à ' + TO_EMAIL + '.', 'err');
       return;
     }
 
-    btn.disabled = true; say('Envoi en cours…');
+    const d = { name: form.name.value.trim(), email: form.email.value.trim(), message: form.message.value.trim() };
+    btn.disabled = true; btn.textContent = 'Envoi en cours…'; say('');
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -36,10 +49,11 @@
         })
       });
       const json = await res.json();
-      if (res.ok && json.success) { form.reset(); say('Merci ! Ton message a bien été envoyé.', 'ok'); }
-      else throw new Error(json.message || 'Erreur');
+      if (!res.ok || !json.success) throw new Error(json.message || 'Erreur');
+      form.reset();
+      form.classList.add('sent'); thanks.hidden = false; again.focus();
     } catch (err) {
-      say('L\u2019envoi a échoué. Écris-moi directement à ' + TO_EMAIL + '.', 'err');
-    } finally { btn.disabled = false; }
+      say('L\u2019envoi a échoué. Réessaie, ou écris-moi à ' + TO_EMAIL + '.', 'err');
+    } finally { btn.disabled = false; btn.textContent = 'Envoyer le message'; }
   });
 })();

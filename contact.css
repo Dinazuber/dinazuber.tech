@@ -16,3 +16,13 @@
 :root[data-theme="light"] .form .status.ok{color:#0F7A52}
 :root[data-theme="light"] .form .status.err{color:#B3261E}
 @media print{.form{display:none!important}}
+
+/* Après envoi : on retire les champs et on affiche le remerciement */
+.form.sent > :not(.thanks){display:none}
+.form .thanks{text-align:center;padding:1.5rem 0;display:grid;gap:.8rem;justify-items:center;animation:thanksIn .6s cubic-bezier(.2,.8,.2,1) both}
+.form .thanks[hidden]{display:none}
+.form .thanks h3{font-size:2rem}
+.form .thanks p{color:var(--muted);max-width:32ch}
+.form .again{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+@keyframes thanksIn{from{opacity:0;transform:translateY(16px) scale(.96)}}
+@media (prefers-reduced-motion:reduce){.form .thanks{animation:none}}
