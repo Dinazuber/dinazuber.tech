@@ -47,31 +47,6 @@ python -m http.server 8000
 # puis ouvre http://localhost:8000
 ```
 
-## Personnaliser
-
-| Ce que je veux changer | Où |
-| --- | --- |
-| Textes, projets, parcours, contacts | `index.html` |
-| Couleurs (clair et sombre) | Variables CSS au début de `style.css` (`:root` et `:root[data-theme="light"]`) |
-| Mots qui s'écrivent dans le titre | Tableau `words` dans `script.js` |
-| Photo et captures des projets | Remplacer les fichiers dans `assets/` en gardant les mêmes noms |
-| CV en PDF | Remplacer `assets/Dina_Zuber_CV.pdf` en gardant le même nom |
-
-Si une image est absente, le site affiche automatiquement un remplacement (initiales « DZ » ou maquette colorée).
-
-## Déploiement avec GitHub Pages
-
-1. Pousse les fichiers sur la branche `main` du dépôt (`index.html` à la racine).
-2. Dans le dépôt, va dans **Settings → Pages**.
-3. Sous *Build and deployment*, choisis **Deploy from a branch**, branche `main`, dossier `/ (root)`, puis **Save**.
-4. Le site est publié en une à deux minutes. Chaque `git push` met le site à jour.
-
-### Domaine personnalisé
-
-- Renseigne `dinazuber.tech` dans **Settings → Pages → Custom domain**.
-- Ajoute chez le registrar les enregistrements DNS indiqués dans la [documentation GitHub Pages](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site).
-- Active **Enforce HTTPS** une fois le domaine validé.
-
 ## Technologies
 
 - HTML5, CSS3 (variables CSS, grid, flexbox), JavaScript (ES6+)
